@@ -1,0 +1,56 @@
+{
+  "appId": "com.dsh.car",
+  "productName": "车机助手",
+  "electronLanguages": [
+    "zh-CN"
+  ],
+  "buildDependenciesFromSource": true,
+  "extraMetadata": {
+    "main": "dist/index.js"
+  },
+  "nodeGypRebuild": false,
+  "npmRebuild": false,
+  "asar": false,
+  "buildVersion": "1",
+  "artifactName": "${productName}-${version}.${ext}",
+  "directories": {
+    "output": "../../dist"
+  },
+  "mac": {
+    "icon": "src/files/logo/logo.icns",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": [
+          "universal"
+        ]
+      }
+    ],
+    "x64ArchFiles": "*"
+  },
+  "win": {
+    "icon": "src/files/logo/logo.ico",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "ia32",
+          "x64",
+          "arm64"
+        ]
+      }
+    ]
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "allowElevation": true,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  },
+  "extraResources": [
+    "electron-builder.json"
+  ]
+}

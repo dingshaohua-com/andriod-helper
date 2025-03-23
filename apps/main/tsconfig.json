@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "esModuleInterop":true,
+        "module": "ESNext"
+    },
+    
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "src/render"
+    ],
+}

@@ -6,6 +6,6 @@
 
   },
 
-  "include": ["src/**/*"],
-  "exclude": ["src/render"]
+  "include": ["src/**/*", "global.d.ts"],
+  "exclude": ["src/render"],
 }

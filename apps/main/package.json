@@ -20,6 +20,7 @@
     "tsc-alias": "^1.8.11"
   },
   "dependencies": {
+    "import-sync": "^2.2.3",
     "tsx": "^4.19.3"
   }
 }

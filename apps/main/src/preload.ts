@@ -1,1 +1,25 @@
-console.log(123)
+const { contextBridge, ipcRenderer } = require("electron");
+
+if (!window.electronApi) {
+  // 获取主进程里的ipcMainHandlers
+  let ipcMainHandlers = ipcRenderer.sendSync("getIcpHandler");
+  ipcMainHandlers = JSON.parse(ipcMainHandlers);
+
+  // 注入到渲染进程的electronApi对象中
+  const electronAPIContent = {
+    // onUsbChange: (callback) =>
+    //   ipcRenderer.on("usbChange", (_event, value) => callback(value)),
+  };
+  ipcMainHandlers.forEach((handler) => {
+    if (handler.type === "Function") {
+      electronAPIContent[handler.key] = function () {
+        // @ts-ignore
+        return ipcRenderer.invoke(handler.key, ...arguments);
+      };
+    } else {
+      electronAPIContent[handler.key] = handler.val;
+    }
+  });
+
+  contextBridge.exposeInMainWorld("electronApi", electronAPIContent);
+}

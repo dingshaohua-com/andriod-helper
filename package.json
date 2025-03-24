@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node ./bin/dev.ts main",
-    "build": "node ./bin/build.ts main"
+    "dev": "node ./bin/dev.ts",
+    "build": "node ./bin/build.ts"
   },
   "keywords": [],
   "author": "",

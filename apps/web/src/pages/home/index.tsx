@@ -4,7 +4,7 @@ import "./style.less";
 function App() {
   return (
     <div className="editor-wrapp">
-      hello
+      hello --
     </div>
   );
 }

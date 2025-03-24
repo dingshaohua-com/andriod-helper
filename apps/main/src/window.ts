@@ -1,7 +1,5 @@
 import path from "node:path";
-import { app, BrowserWindow, nativeImage } from "electron";
-
-console.log(123);
+import { app, BrowserWindow } from "electron";
 
 const { isPackaged } = app;
 export const createMainWindow = () => {
@@ -14,9 +12,9 @@ export const createMainWindow = () => {
         resizable: false,
         webPreferences: {
             webSecurity: false,
-            preload: path.join(__dirname, 'preload.js'),
+            preload: path.join(__dirname, isPackaged?'preload.js':'preload.ts'),
         },
-        titleBarStyle: "hidden",
+        // titleBarStyle: "hidden",
         titleBarOverlay: {
             color: "rgba(0,0,0,0)",
             height: 35,
@@ -25,13 +23,11 @@ export const createMainWindow = () => {
     };
     const mainWin = new BrowserWindow(mainWinOtp);
     mainWin.setMaximizable(false);
-    // if (isPackaged) {
-    //     const renderEntry = path.join(__dirname,'src','render', 'index.html');
-    //     mainWin.loadFile(renderEntry);
-    // } else {
-    //     mainWin.loadURL("http://localhost:3001");
-    // }
-    const renderEntry = path.join(__dirname, 'render', 'index.html');
-    mainWin.loadFile(renderEntry);
+    if (isPackaged) {
+        const renderEntry = path.join(__dirname,'src','render', 'index.html');
+        mainWin.loadFile(renderEntry);
+    } else {
+        mainWin.loadURL("http://localhost:3001");
+    }
     return mainWin;
 };

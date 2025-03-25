@@ -4,7 +4,7 @@ function App() {
   const test = async() => {
     // @ts-ignore
     // electronApi.openWindow("https://baidu.com");
-    const res = await electronApi.execShell();
+    const res = await electronApi.execApkTool();
     console.log(res);
     
   };

@@ -1,9 +1,12 @@
 import "./style.less";
 
 function App() {
-  const test = () => {
+  const test = async() => {
     // @ts-ignore
-    electronApi.openWindow("https://baidu.com");
+    // electronApi.openWindow("https://baidu.com");
+    const res = await electronApi.execShell();
+    console.log(res);
+    
   };
   return (
     <div className="editor-wrapp">

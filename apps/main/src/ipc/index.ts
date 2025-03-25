@@ -35,7 +35,7 @@ export const registerHandlerForIcpMain = () => {
   const ipcMainHandlers = getIcpMainHandler();
   for (const key in ipcMainHandlers) {
     const handler = ipcMainHandlers[key];
-    if (handler.type === "Function") {
+    if (handler.type.indexOf("Function")>-1) {
       ipcMain.handle(key, (event, ...params) => handler.val(...params));
     }
   }

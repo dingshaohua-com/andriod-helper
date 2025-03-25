@@ -5,13 +5,16 @@ if (!window.electronApi) {
   let ipcMainHandlers = ipcRenderer.sendSync("getIcpHandler");
   ipcMainHandlers = JSON.parse(ipcMainHandlers);
 
+  console.log('ipcMainHandlers', ipcMainHandlers);
+  
+
   // 注入到渲染进程的electronApi对象中
   const electronAPIContent = {
     // onUsbChange: (callback) =>
     //   ipcRenderer.on("usbChange", (_event, value) => callback(value)),
   };
   ipcMainHandlers.forEach((handler) => {
-    if (handler.type === "Function") {
+    if (handler.type.indexOf("Function")>-1) { // Function or AsyncFunction
       electronAPIContent[handler.key] = function () {
         // @ts-ignore
         return ipcRenderer.invoke(handler.key, ...arguments);

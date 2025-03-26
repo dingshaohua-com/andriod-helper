@@ -14,6 +14,7 @@ export const execJar = (str) => {
 };
 
 export const execApkTool = (str) => {
+  console.log("execApkTool", str);
   const res = execJar(`-jar ${apktool} ${str}`);
   return res;
 };

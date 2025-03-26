@@ -24,5 +24,5 @@ if (!window.electronApi) {
     }
   });
 
-  contextBridge.exposeInMainWorld("electronApi", electronAPIContent);
+  contextBridge.exposeInMainWorld("$electron", electronAPIContent);
 }

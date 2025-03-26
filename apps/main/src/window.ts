@@ -75,7 +75,8 @@ export const createOtherWindow = (route, width = 600, height = 400) => {
       );
       win.loadFile(entryPath, { hash: route });
     } else {
-      win.loadURL(webDevServer + "/#" + route);
+      // win.loadURL(webDevServer + "/#" + route); // hash router
+      win.loadURL(webDevServer + route); // history router
     }
   }
 

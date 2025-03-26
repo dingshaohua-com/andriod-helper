@@ -1,6 +1,25 @@
-// .editor-wrapp {
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   flex-direction: column;
-// }
+.home-wrapp {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  .works {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    .work {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.02);
+      cursor: pointer;
+      &:hover {
+        box-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 6px #0073e6,
+          0 0 6px #0073e6;
+      }
+      &>div{
+        margin-top: 10px;
+        color: #0073e6;
+      }
+    }
+  }
+}

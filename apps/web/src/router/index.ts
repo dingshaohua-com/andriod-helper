@@ -14,6 +14,10 @@ const router = createBrowserRouter([
         // Component: Home,
         Component: lazy(() => import("@/pages/home")),
       },
+      {
+        path: "/decompiler",
+        Component: lazy(() => import("@/pages/decompiler")),
+      }
     ],
   },
 ]);

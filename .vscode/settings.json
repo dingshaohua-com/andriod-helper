@@ -1,3 +1,6 @@
 {
-  "npm.exclude": ["**/apps/**"]
+  "npm.exclude": [
+    "**/apps/**"
+  ],
+  "git.ignoreLimitWarning": true
 }

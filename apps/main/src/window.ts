@@ -26,7 +26,7 @@ export const createMainWindow = () => {
   const mainWin = new BrowserWindow(mainWinOtp);
   mainWin.setMaximizable(false);
   if (isPackaged) {
-    const renderEntry = path.join(__dirname, "src", "render", "index.html");
+    const renderEntry = path.join(__dirname, "render", "index.html");
     mainWin.loadFile(renderEntry);
   } else {
     mainWin.loadURL(webDevServer);
@@ -66,17 +66,15 @@ export const createOtherWindow = (route, width = 600, height = 400) => {
     win.loadURL(route);
   } else {
     if (app.isPackaged) {
-      const entryPath = path.resolve(
+      const entryPath = path.join(
         __dirname,
-        "..",
-        "src",
-        "web",
+        "render",
         "index.html"
       );
       win.loadFile(entryPath, { hash: route });
     } else {
-      // win.loadURL(webDevServer + "/#" + route); // hash router
-      win.loadURL(webDevServer + route); // history router
+      win.loadURL(webDevServer + "/#" + route); // hash router
+      // win.loadURL(webDevServer + route); // history router
     }
   }
 

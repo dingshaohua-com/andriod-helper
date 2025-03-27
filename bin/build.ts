@@ -4,7 +4,7 @@ import path from "node:path";
 import { spawn, spawnSync } from "node:child_process";
 
 const args = process.argv.slice(2);
-const projectName = args[0];
+const projectName = args[0]?args[0]:'main';
 if (projectName === "main") {
     fs.rmSync("dist", { recursive: true, force: true });
     const webPath = path.resolve("apps", "web");
@@ -18,5 +18,5 @@ if (projectName === "main") {
         shell: true,
     });
 } else {
-    console.log("Invalid project name");
+    console.log("无效的项目名");
 }

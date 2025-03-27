@@ -4,8 +4,6 @@ if (!window.electronApi) {
   // 获取主进程里的ipcMainHandlers
   let ipcMainHandlers = ipcRenderer.sendSync("getIcpHandler");
   ipcMainHandlers = JSON.parse(ipcMainHandlers);
-
-  console.log('ipcMainHandlers', ipcMainHandlers);
   
 
   // 注入到渲染进程的electronApi对象中

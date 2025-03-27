@@ -9,6 +9,9 @@ function Decompiler() {
   const [decompilerRes, setDecompilerRes] = useState("");
   const onSelectFile = async () => {
     let res = await $electron.openFileDialog("apk");
+    if(!res){
+      return false;
+    }
     setFile(res);
     // 初始化数据
     setExecStatus("ing");
@@ -40,6 +43,7 @@ function Decompiler() {
             <div>
               执行结束，结果如下
               <button
+                className="small green button"
                 onClick={() => $electron.showExplorer(getPathWhithFile(file))}
               >
                 打开输出目录

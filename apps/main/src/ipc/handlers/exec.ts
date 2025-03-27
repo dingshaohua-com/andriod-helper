@@ -3,7 +3,7 @@ import path from "node:path";
 
 shelljs.config.execPath = shelljs.which("node");
 const apktool = path.resolve("src", "tools", "apktool_2.8.1.jar");
-const javaPath = path.resolve("src", "tools", "jre", "bin", "java");
+const javaPath = path.resolve("src", "tools", "jre-macos-intel", "bin", "java");
 export const execJar = (str) => {
   const shellScript = `${javaPath} ${str}`;
   return new Promise((resolve) => {
